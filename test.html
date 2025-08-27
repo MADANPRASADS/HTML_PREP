@@ -1,0 +1,43 @@
+<html>
+    <head>
+        TO-DO APP
+    </head>
+    <body>
+        <p>To-Do List:</p>
+        <ul id="to-do">
+
+        </ul>
+        <p>Done List:</p>
+        <ul id="done">
+
+        </ul>
+        <div id="diiv">
+             <input id="add task" type="text">
+             <button id="submit">Add Task</button>
+        </div>
+        
+
+    </body>
+
+    <script>
+        let input = document.getElementById('add task');
+        let button = document.getElementById('submit');
+        let element = document.getElementById('to-do');
+        let donee = document.getElementById('done');
+        let list = new Array();
+        button.addEventListener('click',(event)=>
+    {
+        list.push(input.value)
+        element.innerHTML += `<li id="${list.length-1}"><button id="${list.length-1}" onclick='complete(${list.length-1})'>${input.value}</button></li>`
+        inpput=" "
+       
+
+
+    })
+    function complete(idd){
+        donee.innerHTML += ` <li><button id="${idd}">${list[idd]}</button></li>`
+         document.getElementById(idd).style.display = "none";
+
+    }
+    </script>
+</html>
